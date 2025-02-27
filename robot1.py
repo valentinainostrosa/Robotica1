@@ -58,18 +58,18 @@ joint6 = np.deg2rad(0)
 
 print("Denavit-Hartenberg Parameters WITH TOOLBOX: ")
 
-d1, a2, a3, d4, d6 = 0.290, 0.270, 0.070, 0.302, 0.072
-alpha1, alpha2, alpha3, alpha4, alpha5, alpha6 = np.pi/2, 0, np.pi/2, -np.pi/2, np.pi/2, 0
+d1, a2, d4, d6 = 0.185, 0.410, 0.430, 0.145
+alpha1, alpha2, alpha3, alpha4, alpha5, alpha6 = -np.pi/2, 0, np.pi, np.pi/2, -np.pi/2, 0
 
 robot = rtb.DHRobot(
     [
-        rtb.RevoluteDH(d=float(d1), a=0, alpha=float(alpha1), offset=0, qlim=[-2.87979, 2.87979]),
-        rtb.RevoluteDH(d=0, a=float(a2), alpha=float(alpha2), offset=float(np.pi/2), qlim=[-1.91986,1.91986]),
-        rtb.RevoluteDH(d=0, a=float(a3), alpha=float(alpha3), offset=0, qlim=[-1.91986,1.22173]),
-        rtb.RevoluteDH(d=float(d4), a=0, alpha=float(alpha4), offset=0,qlim=[-2.79253,2.79253]),
-        rtb.RevoluteDH(d=0, a=0, alpha=float(alpha5), offset=0, qlim=[-2.0944,2.0944]),
-        rtb.RevoluteDH(d=float(d6), a=0, alpha=float(alpha6), offset=0, qlim=[-6.98132,6.98132])
-    ], name = "ABB IRB 120-3/0.6", base = SE3(0, 0, 0)
+        rtb.RevoluteDH(d=float(d1), a=0, alpha=float(alpha1), offset=0, qlim=[,]),
+        rtb.RevoluteDH(d=0, a=float(a2), alpha=float(alpha2), offset=float(-np.pi/2), qlim=[,]),
+        rtb.RevoluteDH(d=0, a=0, alpha=float(alpha3), offset=0, qlim=[,]),
+        rtb.RevoluteDH(d=float(d4), a=0, alpha=float(alpha4), offset=0,qlim=[,]),
+        rtb.RevoluteDH(d=0, a=0, alpha=float(alpha5), offset=0, qlim=[,]),
+        rtb.RevoluteDH(d=float(d6), a=0, alpha=float(alpha6), offset=0, qlim=[,])
+    ], name = "Fanuc CRX-5ia", base = SE3(0, 0, 0)
 )
 
 print(robot)
@@ -77,4 +77,4 @@ q =np.array([joint1, joint2, joint3, joint4, joint5, joint6])
 robot.plot(q=q, backend = 'pyplot', dt = 10, limits = [-0.8,0.8,-0.8,0.8,-0.4,0.6,], shadow = True, jointaxes = True)
 plt.show()
 #q1 = np.array([0, np.pi/2, 0, 0, 0, 0])
-print(robot.fkine(q))
+print(robot.fkine(q))   
