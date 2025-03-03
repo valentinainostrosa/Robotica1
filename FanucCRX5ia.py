@@ -36,3 +36,4 @@ robot.plot(q=q, backend = 'pyplot', dt = 10, limits = [-0.8,0.8,-0.8,0.8,-0.4,0.
 plt.show()
 #q1 = np.array([0, np.pi/2, 0, 0, 0, 0])
 print(robot.fkine(q)) 
+#Fin
